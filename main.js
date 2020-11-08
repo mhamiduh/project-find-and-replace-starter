@@ -36,3 +36,28 @@ function getCellElements (currentRowElement) {
 //
 // You can, of course, remove any comments in this starter project once
 // you have read them, if you prefer.
+
+replaceAllButton.addEventListener("click", function() {
+    let find = findInput.value 
+    let replace = replaceInput.values
+    let counter = 0;
+
+    for (let i = 0; i < rowElements.length; i++) {
+        const elements = rowElements[i];
+        let getElements = getCellElements(elements)
+        
+        for (let j = 0; j < getElements.length; j++) {
+            const eachElement =  getElements[j].innerHTML;
+            
+            if(eachElement.includes(find)){
+                console.log(eachElement)
+                console.log(find)
+                getElements[j].innerHTML = "<mark>" + eachElement.replace(find,replace)+"</mark>"
+                counter += 1
+               
+            }
+
+        }
+    }
+});
+
